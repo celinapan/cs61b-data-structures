@@ -1,0 +1,36 @@
+# My Test 3 - Errors
+I prelude1.inc
++ f.txt notwug.txt
+> add f.txt
+<<<
+> commit ""
+Please enter a commit message.
+<<<
+> rm f.txt
+<<<
+> commit "Two files"
+<<<
+> log
+===
+${COMMIT_HEAD}
+Two files
+
+===
+${COMMIT_HEAD}
+
+
+===
+${COMMIT_HEAD}
+initial commit
+
+<<<*
+# UID of initial version
+D UID1 "${3}"
+# UID of second version
+D UID2 "${1}"
+> find "Two files"
+${UID2}
+<<<*
+> find "initial commit"
+${UID1}
+<<<

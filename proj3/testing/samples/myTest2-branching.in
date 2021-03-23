@@ -1,0 +1,62 @@
+# My Test 2 Branching
+I prelude1.inc
+> branch cool-beans
+<<<
++ f.txt wug.txt
++ g.txt notwug.txt
+> add g.txt
+<<<
+> add f.txt
+<<<
+> commit "Main two files"
+<<<
+E f.txt
+E g.txt
+
+D HEADER "commit [a-f0-9]+"
+D DATE "Date: \w\w\w \w\w\w \d+ \d\d:\d\d:\d\d \d\d\d\d [-+]\d\d\d\d"
+> log
+===
+${HEADER}
+${DATE}
+Main two files
+
+===
+${HEADER}
+${DATE}
+initial commit
+
+<<<*
+
+> checkout cool-beans
+<<<
+* f.txt
+* g.txt
++ f.txt notwug.txt
+> add f.txt
+<<<
+> commit "Alternative file"
+<<<
+= f.txt notwug.txt
+* g.txt
+> checkout master
+<<<
+= f.txt wug.txt
+= g.txt notwug.txt
+> checkout cool-beans
+<<<
+= f.txt notwug.txt
+* g.txt
+> status
+=== Branches ===
+*cool-beans
+master
+
+=== Staged Files ===
+
+=== Removed Files ===
+
+=== Modifications Not Staged For Commit ===
+
+=== Untracked Files ===
+<<<

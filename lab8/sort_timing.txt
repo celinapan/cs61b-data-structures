@@ -1,0 +1,25 @@
+Q: Is one sorting algorithm always faster than another?
+A: CountingSorter is always faster than the others.
+
+Q: Above we said that BubbleSort, WipingBubbleSort, and InsertionSort each had the same Theta(N^2) asymptotic time complexity. How can you explain the differences in the plots for these three algorithms?
+A: The BubbleSort algorithm has the highest peaks compared to the other ones. Even for smaller arrays(~1000), BubbleSort can take over 6000 microseconds.
+    Even though WipingBubbleSort and InsertionSort has the same Theta, the plot shows that both are significantly faster than BubbleSort (at nrepeats = 10).
+    Order(Fastest -> Slowest): Insertion, WipingBubble, Bubble.
+
+Q: What information can we gain from empirical analysis of algorithms which might not be as noticeable in asymptotical bounds?
+A: Analyzing algorithms empirically allows us to have a precise observation of the algorithm's speed. Asymptotical bounds showed us that InsertionSort is
+    faster than BubbleSort even though in theory, both have the same complexity. This will help us choose the best method to approach our problems rather than
+    picking a random one.
+
+Q: For any given sorting algorithm, does increasing the array size always mean the sorting takes longer?
+A: No, if an algorithm has a constant time complexity, the array size shouldn't affect sorting time.
+
+Q: How does changing nrepeats change the plot?
+A: Changing nrepeats shows a more distinct difference when the array size is larger. With 10 repeats, the peaks of each algorithm were more spread out.
+    With 20 repeats, it's clearer that BubbleSort's speed increases rapidly with an array increase, whereas the other algorithm increases more steadily.
+
+Q: Is your plot the exact same as your partner's plot, even with the same values of ntrials, by, and nrepeats?
+A: (No partner, but) No it's not the exact same because the arrays generated are random
+
+Q: Optional: Look at the source code for BubbleSorter to WipingBubbleSorter. After looking at the plots, can you intuitively explain why WipingBubbleSorter is usually 2x as fast as BubbleSorter? (Hint: Consider the immobility of some elements when the swapping passes are single directional (i.e. only going forward), and how this "Wiping" strategy helps deal with that issue.) Can you come up with an example that shows the difference in runtime?
+A: WipingBubbleSort processes the array from both ends, working towards the opposite end. This might mean that you only have to process half the array instead of looping through the whole array each time.
